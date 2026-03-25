@@ -3,26 +3,33 @@
 This project demonstrates how to fine-tune a large language model (LLM) using **LoRA (Low-Rank Adaptation)** for the [NVIDIA Nemotron Model Reasoning Challenge](https://www.kaggle.com/competitions/nvidia-nemotron-model-reasoning-challenge).  
 The task involves learning binary transformation rules from prompts and predicting valid 8-bit binary outputs.
 
+---
+
 ## 📌 Project Overview
 - **Base Model:** [Mistral-7B-Instruct-v0.1](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.1)  
 - **Fine-Tuning Method:** LoRA adapters applied to attention layers (`q_proj`, `v_proj`)  
 - **Dataset:** Provided by NVIDIA (train.csv, test.csv)  
 - **Goal:** Efficiently adapt a large model to structured reasoning tasks without retraining all parameters.
 
+---
+
 ## ⚙️ Setup
 Install required libraries:
 ```bash
 pip install -q transformers accelerate sentencepiece
-pip install -q peft dataset
+pip install -q peft datasets
+```
+
+---
 
 ## 📂 Data
 - **Train Data:** Contains `id`, `prompt`, and `answer` (binary strings).  
 - **Test Data:** Contains `id` and `prompt` only.  
 - **Format Conversion:** Prompts are converted into instruction style:
-  
+  ```
   Input binary: 00110100
   Output binary:
-  
+  ```
 
 ---
 
@@ -89,4 +96,3 @@ Base model usage follows Mistral AI’s license [(huggingface.co in Bing)](https
 
 ---
 
-This README gives a **professional, competition-ready overview** of your notebook. Do you want me to also add a **"Quick Start" section with exact Kaggle commands** so someone can run it immediately in a Kaggle notebook?
